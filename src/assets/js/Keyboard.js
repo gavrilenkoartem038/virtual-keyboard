@@ -23,7 +23,9 @@ export default class Keyboard {
     this.title = createElement('h1', 'title', 'RSS Virtual keyboard');
     this.textarea = createElement('textarea', 'textarea');
     const keyboard = this.createKeyboard();
-    document.body.append(this.title, this.textarea, keyboard);
+    this.systemDesc = createElement('div', 'description', 'This keyboadrd was created for Windows operation systems');
+    this.langDesc = createElement('div', 'description', 'For switching language press: LeftCtrl + LeftAlt');
+    document.body.append(this.title, this.textarea, keyboard, this.systemDesc, this.langDesc);
     keyboard.addEventListener('mousedown', this.handleEvent);
     document.addEventListener('keydown', this.handleEvent);
     document.addEventListener('keyup', this.handleEvent);
