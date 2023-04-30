@@ -1,3 +1,61 @@
-p {
-    color: blue;
+@font-face {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Lato/Lato-Regular.ttf");
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.textarea {
+  width: 930px;
+  height: 300px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 890px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 10px -1px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  .row {
+      display: flex;
+      gap: 10px;
+      .key {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          box-shadow: 1px 1px 5px;
+          border-radius: 5px;
+          background-color: #adadad;
+          transition: 0.5s;
+          &:hover {
+              background-color: #909090;
+          }
+          &.active {
+              background-color: #909090;
+              box-shadow: inset 1px 1px 5px -1px;
+          }
+              
+      }
+      @each $var in ('Space', 'ShiftRight', 'ShiftLeft', 'CapsLock', 'Enter', 'Backspace', 'Tab') {
+          [data-code = #{$var}] {
+              flex-grow: 2;
+          }
+      }
+  }
 }
